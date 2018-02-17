@@ -11,6 +11,7 @@ var messageDisplay = document.getElementById("message");
 var h1 = document.querySelector("h1");
 var resetButton = document.getElementById("reset");
 var modeButtons = document.querySelectorAll(".mode");
+var hardMode = true;
 var switchFuncs = document.getElementById("switchFuncs");
 
 hardBtn.classList.add("selected");
@@ -30,12 +31,13 @@ for(var i = 0; i < modeButtons.length; i++){
 		this.classList.add("selected");
 		switch (this.textContent){
 			case "Easy":
-				alert("Broken! Sorry! Only Hard Mode Available!");
-				numSquares = 6;
+				numSquares = 3;
+				hardMode = false;
 				break;
 		
 			default:
 				numSquares = 6;
+				hardMode = true;
 
 		}
 		resetBtn();
@@ -143,7 +145,7 @@ makeCanvas();
 
 function makeCanvas(){
 
-	for(var i = 0; i < ids.length; i++){
+	for(var i = 0; i < numSquares; i++){
 		var canvas = document.getElementById(ids[i]);
 
 		var width = canvas.width;
