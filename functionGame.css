@@ -1,12 +1,13 @@
 body {
 	background-color: #003F87;
 	margin: 0;
-	font-family: "Monsterrat";
+	font-family: 'Acme', sans-serif;
 }
 
 h1 {
 	color: #003F87;
 	text-align: center;
+    text-shadow: 2px 2px #232323;
 	background-color: #FF8C00;
 	margin: 0;
 	font-weight: 800;
@@ -14,6 +15,14 @@ h1 {
 	line-height: 1.1;
 	font-size: 1.75em;
 	padding: 20px 0;
+}
+
+#The {
+	font-size: .95em;
+}
+
+#Great {
+	font-size: 2em;
 }
 
 #container {
@@ -25,6 +34,7 @@ canvas {
 	/*height: 180px;
 	width: 30%;*/
 	/*background: none;*/
+	border: 4px #232838 solid;
 	padding-bottom: 0%;
 	float: left;
 	margin: 1.66%;
@@ -34,14 +44,17 @@ canvas {
 	-moz-transition: background .5s;
 }
 
-#functionDisplay {
+h1 #functionDisplay {
 	color: white;
 	font-weight: normal;
 	text-transform: none;
+	font-size: 1.15em;
 }
 
 #stripe {
 	background-color: white;
+	border-top: 4px #232838 solid;
+	border-bottom: 4px #232838 solid;
 	height: 30px;
 	text-align: center;
 	font-color: black;
@@ -74,11 +87,15 @@ button {
 
 #stripe button {
 	outline: none;
+	border-radius: 2px;
 }
 
 button:hover {
 	color: white;
 	background: #FF8C00;
+	border-left: 1px #232838 solid;
+	border-right: 1px #232838 solid;
+	border-radius: 2px;
 	outline-style: none;
 }
 

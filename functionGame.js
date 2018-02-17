@@ -59,6 +59,7 @@ for(var i = 0; i < squares.length; i++){
 			win(clickedColor);
 		}
 		else{
+			this.style.borderColor = "#003F87"
 			this.style.background = "#003F87";
 			messageDisplay.textContent = "Try Again";
 		}
@@ -72,6 +73,9 @@ function win(colore){
 	messageDisplay.textContent = "Correct!";
 	resetButton.textContent = "Play Again?";
 	h1.style.backgroundColor = colore;
+	for(var i = 0; i < squares.length; i++){
+		squares[i].style.borderColor = "#232838";
+	}
 	console.log(colore);
 	changeColors(colore);
 }
@@ -114,6 +118,7 @@ function resetBtn(){
 		if(colors[i]){
 			squares[i].style.display = "block";
 			squares[i].style.background = colors[i];
+			squares[i].style.borderColor = "#232838";
 		} else {
 			squares[i].style.display = "none";
 		}
@@ -122,6 +127,7 @@ function resetBtn(){
 	resetButton.textContent = "New";
 	messageDisplay.textContent = "";
 	h1.style.background = "#FF8C00";
+
 }
 
 
@@ -314,10 +320,20 @@ function makeCanvas(){
 
 	pickedCanvas = pickCanvas();
 	if(!sinxOn){
-		var pickedFunction = pickedCanvas[0] + "cos(" + pickedCanvas[1] + "x) + " + pickedCanvas[2];
+		if(pickedCanvas[2]<0){
+		var pickedFunction = "f(x) = " + pickedCanvas[0] + "cos(" + pickedCanvas[1] + "x) " + pickedCanvas[2];
+		}
+		else{
+		var pickedFunction = "f(x) = " + pickedCanvas[0] + "cos(" + pickedCanvas[1] + "x) + " + pickedCanvas[2];
+		}
 	}
 	else{
-		var pickedFunction = pickedCanvas[0] + "sin(" + pickedCanvas[1] + "x) + " + pickedCanvas[2];
+		if(pickedCanvas[2]<0){
+		var pickedFunction = "f(x) = " + pickedCanvas[0] + "sin(" + pickedCanvas[1] + "x) " + pickedCanvas[2];
+		}
+		else{
+		var pickedFunction = "f(x) = " + pickedCanvas[0] + "sin(" + pickedCanvas[1] + "x) + " + pickedCanvas[2];
+		}
 	}
 	functionDisplay.textContent = pickedFunction;
 }
