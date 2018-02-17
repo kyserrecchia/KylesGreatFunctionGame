@@ -1,2 +1,2 @@
 # TheGreatFunctionGame
-Choose the right randomly generated cosine function!
+Choose the right randomly generated sine or cosine function!
