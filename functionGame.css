@@ -34,7 +34,7 @@ canvas {
 	-moz-transition: background .5s;
 }
 
-span {
+#functionDisplay {
 	color: white;
 	font-weight: normal;
 	text-transform: none;
@@ -87,6 +87,8 @@ button:hover {
 }
 
 #message {
+	font-weight: normal;
+	text-transform: none;
 	display: inline-block;
 	width: 20%;
 	color: black;

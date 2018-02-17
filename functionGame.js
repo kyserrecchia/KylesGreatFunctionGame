@@ -1,5 +1,6 @@
 //VARIABLES
 var canvasArr = [];
+var sinxOn = false;
 var numSquares = 6;
 var colors = generateRandomColors(numSquares);
 var squares = document.querySelectorAll("canvas");
@@ -10,11 +11,17 @@ var messageDisplay = document.getElementById("message");
 var h1 = document.querySelector("h1");
 var resetButton = document.getElementById("reset");
 var modeButtons = document.querySelectorAll(".mode");
+var switchFuncs = document.getElementById("switchFuncs");
 
 hardBtn.classList.add("selected");
 
 
 ///EVENT LISTENERS
+switchFuncs.addEventListener("click", function(){
+	sinxOn = !sinxOn;
+	resetBtn();
+});
+
 for(var i = 0; i < modeButtons.length; i++){
 	modeButtons[i].addEventListener("click", function(){
 		for(var j = 0; j < modeButtons.length; j++){
@@ -110,7 +117,7 @@ function resetBtn(){
 		}
 	}
 	makeCanvas();
-	resetButton.textContent = "New Functions";
+	resetButton.textContent = "New";
 	messageDisplay.textContent = "";
 	h1.style.background = "#FF8C00";
 }
@@ -169,8 +176,8 @@ function makeCanvas(){
 		}
 
 
-		var Ctx = canvas.getContext("2d");
-		Ctx.clearRect(0,0,width,height);
+		var context = canvas.getContext("2d");
+		context.clearRect(0,0,width,height);
 
 		///////////////////////////////////////////////
 
@@ -184,66 +191,66 @@ function makeCanvas(){
 		}
 
 		function drawAxes() {
-		 Ctx.save() ;
-		 Ctx.lineWidth = 2 ;
+		 context.save() ;
+		 context.lineWidth = 2 ;
 		 // +Y axis
-		 Ctx.beginPath() ;
-		 Ctx.moveTo(XC(0),YC(0)) ;
-		 Ctx.lineTo(XC(0),YC(MaxY())) ;
-		 Ctx.stroke() ;
+		 context.beginPath() ;
+		 context.moveTo(XC(0),YC(0)) ;
+		 context.lineTo(XC(0),YC(MaxY())) ;
+		 context.stroke() ;
 
 		 // -Y axis
-		 Ctx.beginPath() ;
-		 Ctx.moveTo(XC(0),YC(0)) ;
-		 Ctx.lineTo(XC(0),YC(MinY())) ;
-		 Ctx.stroke() ;
+		 context.beginPath() ;
+		 context.moveTo(XC(0),YC(0)) ;
+		 context.lineTo(XC(0),YC(MinY())) ;
+		 context.stroke() ;
 
 		 // Y axis tick marks
 		 var delta = YTickDelta() ;
 		 for (var i = 1; (i * delta) < MaxY() ; ++i) {
-		  Ctx.beginPath() ;
-		  Ctx.moveTo(XC(0) - 5,YC(i * delta)) ;
-		  Ctx.lineTo(XC(0) + 5,YC(i * delta)) ;
-		  Ctx.stroke() ;  
+		  context.beginPath() ;
+		  context.moveTo(XC(0) - 5,YC(i * delta)) ;
+		  context.lineTo(XC(0) + 5,YC(i * delta)) ;
+		  context.stroke() ;  
 		 }
 
 		 var delta = YTickDelta() ;
 		 for (var i = 1; (i * delta) > MinY() ; --i) {
-		  Ctx.beginPath() ;
-		  Ctx.moveTo(XC(0) - 5,YC(i * delta)) ;
-		  Ctx.lineTo(XC(0) + 5,YC(i * delta)) ;
-		  Ctx.stroke() ;  
+		  context.beginPath() ;
+		  context.moveTo(XC(0) - 5,YC(i * delta)) ;
+		  context.lineTo(XC(0) + 5,YC(i * delta)) ;
+		  context.stroke() ;  
 		 }  
 
 		 // +X axis
-		 Ctx.beginPath() ;
-		 Ctx.moveTo(XC(0),YC(0)) ;
-		 Ctx.lineTo(XC(MaxX()),YC(0)) ;
-		 Ctx.stroke() ;
+		 context.beginPath() ;
+		 context.moveTo(XC(0),YC(0)) ;
+		 context.lineTo(XC(MaxX()),YC(0)) ;
+		 context.stroke() ;
 
 		 // -X axis
-		 Ctx.beginPath() ;
-		 Ctx.moveTo(XC(0),YC(0)) ;
-		 Ctx.lineTo(XC(MinX()),YC(0)) ;
-		 Ctx.stroke() ;
+		 context.beginPath() ;
+		 context.moveTo(XC(0),YC(0)) ;
+		 context.lineTo(XC(MinX()),YC(0)) ;
+		 context.stroke() ;
 
 		 // X tick marks
 		 var delta = XTickDelta() ;
 		 for (var i = 1; (i * delta) < MaxX() ; ++i) {
-		  Ctx.beginPath() ;
-		  Ctx.moveTo(XC(i * delta),YC(0)-5) ;
-		  Ctx.lineTo(XC(i * delta),YC(0)+5) ;
-		  Ctx.stroke() ;  
+		  context.beginPath() ;
+		  context.moveTo(XC(i * delta),YC(0)-5) ;
+		  context.lineTo(XC(i * delta),YC(0)+5) ;
+		  context.stroke() ;  
 		 }
 
 		 var delta = XTickDelta() ;
 		 for (var i = 1; (i * delta) > MinX() ; --i) {
-		  Ctx.beginPath() ;
-		  Ctx.moveTo(XC(i * delta),YC(0)-5) ;
-		  Ctx.lineTo(XC(i * delta),YC(0)+5) ;
-		  Ctx.stroke() ;  
+		  context.beginPath() ;
+		  context.moveTo(XC(i * delta),YC(0)-5) ;
+		  context.lineTo(XC(i * delta),YC(0)+5) ;
+		  context.stroke() ;  
 		 }
-		 Ctx.restore() ;
+		 context.restore() ;
 		}
 
 
@@ -264,24 +271,32 @@ function makeCanvas(){
 
 		canvasArr[i] = [Faval, Fbval, Fcval];
 
-		var F = function(x) {
-		  return (Faval*Math.cos(Fbval*x) + Fcval);
-		} 
+		if(!sinxOn){
+			var F = function(x) {
+			  return (Faval*Math.cos(Fbval*x) + Fcval);
+			}
+		}
+		else{
+			var F = function(x) {
+				return (Faval*Math.sin(Fbval*x) + Fcval);
+			}
+		}
+			 
 
 		function RenderFunction(f) {
 		  var first = true;
 
-		  Ctx.beginPath() ;
+		  context.beginPath() ;
 			  for (var x = MinX(); x <= MaxX(); x += XSTEP) {
 			  	var y = f(x) ;
 				   if (first) {
-				  	 Ctx.moveTo(XC(x),YC(y)) ;
+				  	 context.moveTo(XC(x),YC(y)) ;
 				  	 first = false ;
 				   } else {
-				  	 Ctx.lineTo(XC(x),YC(y)) ;
+				  	 context.lineTo(XC(x),YC(y)) ;
 				   }
 			  }
-		  Ctx.stroke() ;
+		  context.stroke() ;
 		}
 
 
@@ -292,7 +307,12 @@ function makeCanvas(){
 	}
 
 	pickedCanvas = pickCanvas();
-	var pickedFunction = pickedCanvas[0] + "cos(" + pickedCanvas[1] + "x) + " + pickedCanvas[2];
+	if(!sinxOn){
+		var pickedFunction = pickedCanvas[0] + "cos(" + pickedCanvas[1] + "x) + " + pickedCanvas[2];
+	}
+	else{
+		var pickedFunction = pickedCanvas[0] + "sin(" + pickedCanvas[1] + "x) + " + pickedCanvas[2];
+	}
 	functionDisplay.textContent = pickedFunction;
 }
 
