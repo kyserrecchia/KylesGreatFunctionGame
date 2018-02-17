@@ -1,2 +1,2 @@
-# KylesGreatFunctionGame
-Choose the right randomly generated cosine function!
+# TheGreatFunctionGame
+Choose the right randomly generated sine or cosine function!
