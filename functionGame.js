@@ -11,7 +11,6 @@ var messageDisplay = document.getElementById("message");
 var h1 = document.querySelector("h1");
 var resetButton = document.getElementById("reset");
 var modeButtons = document.querySelectorAll(".mode");
-var hardMode = true;
 var switchFuncs = document.getElementById("switchFuncs");
 
 hardBtn.classList.add("selected");
@@ -32,12 +31,10 @@ for(var i = 0; i < modeButtons.length; i++){
 		switch (this.textContent){
 			case "Easy":
 				numSquares = 3;
-				hardMode = false;
 				break;
 		
 			default:
 				numSquares = 6;
-				hardMode = true;
 
 		}
 		resetBtn();
@@ -75,16 +72,10 @@ function win(colore){
 	h1.style.backgroundColor = colore;
 	for(var i = 0; i < squares.length; i++){
 		squares[i].style.borderColor = "#232838";
+		squares[i].style.backgroundColor = colore;
 	}
-	console.log(colore);
-	changeColors(colore);
 }
 
-function changeColors(fx){
-	for(var i = 0; i < fx.length; i++){
-		squares[i].style.backgroundColor = fx;
-	}
-}
 
 function pickColor(){
 	var random = Math.floor(Math.random() * colors.length);
@@ -268,14 +259,14 @@ function makeCanvas(){
 
 		var XSTEP = (MaxX()-MinX())/width ;
 
+		var Faval = Math.floor(Math.random()*12 - 6);
+			if(Faval===0){
+				Faval = -2;
+			}
 		var bval = Math.random()*6 + 1;
 			var bvalStr = bval.toString();
 			var bvalSlicedStr = bvalStr.substring(0,4);
 			var Fbval = parseFloat(bvalSlicedStr);
-		var aval = Math.random()*9 - 4.5;
-			var avalStr = aval.toString();
-			var avalSlicedStr = avalStr.substring(0,4);
-			var Faval = parseFloat(avalSlicedStr);
 		var cval = Math.random()*9 - 4.5;
 			var cvalStr = cval.toString();
 			var cvalSlicedStr = cvalStr.substring(0,4);
@@ -319,22 +310,24 @@ function makeCanvas(){
 	}
 
 	pickedCanvas = pickCanvas();
+
 	if(!sinxOn){
 		if(pickedCanvas[2]<0){
-		var pickedFunction = "f(x) = " + pickedCanvas[0] + "cos(" + pickedCanvas[1] + "x) " + pickedCanvas[2];
+		var pickedFunction = "Which graph is f(x) = " + pickedCanvas[0] + "cos(" + pickedCanvas[1] + "x) " + pickedCanvas[2] + "?";
 		}
 		else{
-		var pickedFunction = "f(x) = " + pickedCanvas[0] + "cos(" + pickedCanvas[1] + "x) + " + pickedCanvas[2];
+		var pickedFunction = "Which graph is f(x) = " + pickedCanvas[0] + "cos(" + pickedCanvas[1] + "x) + " + pickedCanvas[2] + "?";
 		}
 	}
 	else{
 		if(pickedCanvas[2]<0){
-		var pickedFunction = "f(x) = " + pickedCanvas[0] + "sin(" + pickedCanvas[1] + "x) " + pickedCanvas[2];
+		var pickedFunction = "Which graph is f(x) = " + pickedCanvas[0] + "sin(" + pickedCanvas[1] + "x) " + pickedCanvas[2] + "?";
 		}
 		else{
-		var pickedFunction = "f(x) = " + pickedCanvas[0] + "sin(" + pickedCanvas[1] + "x) + " + pickedCanvas[2];
+		var pickedFunction = "Which graph is f(x) = " + pickedCanvas[0] + "sin(" + pickedCanvas[1] + "x) + " + pickedCanvas[2] + "?";
 		}
 	}
+
 	functionDisplay.textContent = pickedFunction;
 }
 
