@@ -145,6 +145,10 @@ makeCanvas();
 
 function makeCanvas(){
 
+	if(numSquares===3){
+		canvasArr = canvasArr.splice(0,2);
+	}
+
 	for(var i = 0; i < numSquares; i++){
 		var canvas = document.getElementById(ids[i]);
 
