@@ -1,0 +1,93 @@
+body {
+	background-color: #003F87;
+	margin: 0;
+	font-family: "Monsterrat";
+}
+
+h1 {
+	color: #003F87;
+	text-align: center;
+	background-color: #FF8C00;
+	margin: 0;
+	font-weight: 800;
+	text-transform: uppercase;
+	line-height: 1.1;
+	font-size: 1.75em;
+	padding: 20px 0;
+}
+
+#container {
+	max-width: 600px;
+	margin: 20px auto;
+}
+
+canvas {
+	/*height: 180px;
+	width: 30%;*/
+	/*background: none;*/
+	padding-bottom: 0%;
+	float: left;
+	margin: 1.66%;
+	border-radius: 15px;
+	transition: background .5s;
+	-webkit-transition: background .5s;
+	-moz-transition: background .5s;
+}
+
+span {
+	color: white;
+	font-weight: normal;
+	text-transform: none;
+}
+
+#stripe {
+	background-color: white;
+	height: 30px;
+	text-align: center;
+	font-color: black;
+}
+
+.selected {
+	color: white;
+	background: #FF8C00;
+}
+
+#functionDisplay {
+	font-size: 200%;
+	line-height: 
+}
+
+#easyBtn {
+	text-decoration: line-through;
+}
+
+button {
+	border: none;
+	background: none;
+	text-transform: uppercase;
+	height: 100%;
+	font-weight: 700;
+	color: #FF8C00;
+	letter-spacing: 1px;
+	font-size: inherit;
+	transition: all .3s;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	outline-style: none;
+}
+
+#stripe button {
+	outline: none;
+}
+
+button:hover {
+	color: white;
+	background: #FF8C00;
+	outline-style: none;
+}
+
+#message {
+	display: inline-block;
+	width: 20%;
+	color: black;
+}
