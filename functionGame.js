@@ -97,7 +97,13 @@ function generateRandomColors(num){
 
 function randomColor(){
 	var r = Math.floor(Math.random()*206 + 50);
-	var g = Math.floor(Math.random()*206 + 50);
+	//conditionls here just shake things up - make things more colorful
+	if(r>200){
+		var g = Math.floor(Math.random()*100 + 25);
+	}
+	else{
+		var g = Math.floor(Math.random()*206 + 50);
+	}
 	var b = Math.floor(Math.random()*206 + 50);
 	return "rgb(" + r + ", " + g + ", " + b + ")";
 }
