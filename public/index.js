@@ -128,7 +128,7 @@ function resetBtn(){
 }
 
 
-//CANVAS
+//MAIN CANVAS WORK
 /////////////////////////////////////////////////
 var ids = [
 	"myCanvas0", "myCanvas1", 
