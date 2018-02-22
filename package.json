@@ -1,21 +1,21 @@
 {
-  "name": "thegreatfunctiongame",
+  "name": "thegroovyfunctiongame",
   "version": "1.0.0",
   "description": "A game for learning about function transformations!",
-  "main": "functionGame.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kyserrecchia/TheGreatFunctionGame.git"
+    "url": "git+https://github.com/kyserrecchia/TheGroovyFunctionGame.git"
   },
   "author": "Kyle Serrecchia",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kyserrecchia/TheGreatFunctionGame/issues"
+    "url": "https://github.com/kyserrecchia/TheGroovyFunctionGame/issues"
   },
-  "homepage": "https://github.com/kyserrecchia/TheGreatFunctionGame#readme",
+  "homepage": "https://github.com/kyserrecchia/TheGroovyFunctionGame#readme",
   "dependencies": {
     "express": "^4.16.2"
   }
