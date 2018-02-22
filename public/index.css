@@ -109,3 +109,13 @@ button:hover {
 	width: 25%;
 	color: black;
 }
+
+
+/*for mobile*/
+@media only screen and (max-width: 450px) {
+    body {
+    	background: lightblue;
+    	width: 100%;
+        font-size: .5em;
+    }
+}
