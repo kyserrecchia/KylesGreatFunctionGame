@@ -155,10 +155,23 @@ function makeCanvas(){
 	for(var i = 0; i < numSquares; i++){
 		var canvas = document.getElementById(ids[i]);
 
+		var screenWidth = window.innerWidth
+		|| document.documentElement.clientWidth
+		|| document.body.clientWidth;
+
+		var screenHeight = window.innerHeight
+		|| document.documentElement.clientHeight
+		|| document.body.clientHeight;
+
+		if(screenWidth < 450){
+			canvas.width = 250;
+			canvas.height = 250;
+		}
+
 		var width = canvas.width;
 		var height = canvas.height;
 
-		//viewport boundaries
+		//canvas boundaries
 		function MaxX(){
 			return 10;
 		}
@@ -175,7 +188,7 @@ function makeCanvas(){
 			return -10;
 		}
 
-		//viewport coordinates conversion
+		//canvas coordinates conversion
 		function XC(x){
 			return (x - MinX()) / (MaxX() - MinX()) * width;
 		}

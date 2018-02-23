@@ -111,13 +111,25 @@ button:hover {
 
 /*for mobile*/
 @media only screen and (max-width: 450px) {
+	
+	html {
+		margin: 0;
+		box-sizing: border-box;
+	}
+
     body {
+    	margin: 0;
     	/*background: lightblue;*/
     	width: 100%;
-        font-size: .5em;
+        font-size: .7em;
+    }
+
+    h1 {
+    	width: 100%;
     }
 
     #container {
     	width: 400px;
+    	margin: 10px auto;
     }
 }
