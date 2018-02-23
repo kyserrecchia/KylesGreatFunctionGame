@@ -56,9 +56,9 @@ for(var i = 0; i < squares.length; i++){
 			win(clickedColor);
 		}
 		else{
-			this.style.borderColor = "#003F87"
-			this.style.background = "#003F87";
-			messageDisplay.textContent = "Try Again";
+			this.style.borderColor = "lightblue"
+			this.style.background = "lightblue";
+			messageDisplay.textContent = "Incorrect";
 		}
 	});
 }
@@ -68,7 +68,7 @@ for(var i = 0; i < squares.length; i++){
 /////////////////////////////////////////////////
 function win(colore){
 	messageDisplay.textContent = "Correct!";
-	resetButton.textContent = "Play Again?";
+	resetButton.textContent = "New";
 	h1.style.backgroundColor = colore;
 	for(var i = 0; i < squares.length; i++){
 		squares[i].style.borderColor = "#232838";

@@ -1,5 +1,5 @@
 body {
-	background-color: #003F87;
+	background-color: lightblue;
 	margin: 0;
 	font-family: 'Acme', sans-serif;
 }
@@ -17,11 +17,11 @@ h1 {
 	padding: 20px 0;
 }
 
-#The {
+#the {
 	font-size: .95em;
 }
 
-#Great {
+#funcName {
 	font-size: 2em;
 }
 
@@ -129,7 +129,6 @@ button:hover {
     	height: 70px;
 		line-height: 1.2;
 		font-size: 1em;
-		/*padding: 10px 0;*/
 		padding-top: 10px;
 		padding-bottom: 0px;
 	    text-shadow: 1px 1px #232323;
@@ -150,19 +149,26 @@ button:hover {
 		font-size: 1.8em;
 	}
 
-    #container {
-    	width: 400px;
-    	margin: 10px auto;
-    }
-
     #stripe {
     	width: 100%;
+    	margin-left: 0px;
+    	padding-left: 0px;
+    	padding-right: 0px;
 		border-top: 1.5px #232838 solid;
 		border-bottom: 1.5px #232838 solid;
     }
 
+    #reset {
+    	width: 12%;
+    }
+
     #message {
     	width: 10%;
+    }
+
+    #container {
+    	width: 400px;
+    	margin: 10px auto;
     }
 
     canvas {
