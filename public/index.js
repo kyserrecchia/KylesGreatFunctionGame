@@ -164,8 +164,8 @@ function makeCanvas(){
 		|| document.body.clientHeight;
 
 		if(screenWidth < 450){
-			canvas.width = 125;
-			canvas.height = 125;
+			canvas.width = 115;
+			canvas.height = 115;
 		}
 
 		var width = canvas.width;
