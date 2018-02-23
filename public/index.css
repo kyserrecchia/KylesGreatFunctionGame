@@ -129,7 +129,9 @@ button:hover {
     	height: 70px;
 		line-height: 1.2;
 		font-size: 1em;
-		padding: 10px 0;
+		/*padding: 10px 0;*/
+		padding-top: 10px;
+		padding-bottom: 0px;
 	    text-shadow: 1px 1px #232323;
     }
 
@@ -168,7 +170,7 @@ button:hover {
     }
 
     canvas:nth-child(odd){
-    	margin-left: 10%;
+    	margin-left: 15%;
     }
 
     canvas:nth-child(even){
