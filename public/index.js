@@ -17,16 +17,22 @@ hardBtn.classList.add("selected");
 
 
 ///EVENT LISTENERS
+
+//switches functions, not ready to be updated for more functions!
 switchFuncs.addEventListener("click", function(){
 	sinxOn = !sinxOn;
 	resetBtn();
 });
 
+//hard and easy buttons (ready for more modes!)
 for(var i = 0; i < modeButtons.length; i++){
+	//setting up event listeners for each
 	modeButtons[i].addEventListener("click", function(){
+		//removing coloring from all
 		for(var j = 0; j < modeButtons.length; j++){
 			modeButtons[j].classList.remove("selected");
 		}
+		//putting back selected coloring for THIS selected
 		this.classList.add("selected");
 		switch (this.textContent){
 			case "Easy":
