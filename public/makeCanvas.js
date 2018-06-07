@@ -1,3 +1,7 @@
+
+
+
+//Canvas function
 function makeCanvas(){
 
 	if(numSquares===3){
@@ -127,9 +131,10 @@ function makeCanvas(){
 		 context.restore() ;
 		}
 
-
 		var XSTEP = (MaxX()-MinX())/width ;
 
+
+		//random values for functions chosen
 		var Faval = Math.floor(Math.random()*12 - 6);
 			if(Faval===0){
 				Faval = -2;
@@ -142,17 +147,33 @@ function makeCanvas(){
 			var cvalStr = cval.toString();
 			var cvalSlicedStr = cvalStr.substring(0,4);
 			var Fcval = parseFloat(cvalSlicedStr);
+		var dval = Math.random()*6 + 1;
+			var dvalStr = dval.toString();
+			var dvalSlicedStr = dvalStr.substring(0,4);
+			var Fdval = parseFloat(dvalSlicedStr);
 
-		canvasArr[i] = [Faval, Fbval, Fcval];
+		// canvasArr[i] = [Faval, Fbval, Fcval, Fdval];
 
-		if(!sinxOn){
+
+		//get functions mapped onto canvas
+		if(chosenFunc==="cosx"){
 			var F = function(x) {
 			  return (Faval*Math.cos(Fbval*x) + Fcval);
 			}
 		}
-		else{
+		else if(chosenFunc==="sinx"){
 			var F = function(x) {
 				return (Faval*Math.sin(Fbval*x) + Fcval);
+			}
+		}
+		else if(chosenFunc==="x2"){
+			var F = function(x) {
+				return (Faval*Math.pow(x,2) + Fbval*x + Fcval);
+			}
+		}
+		else if(chosenFunc==="x3"){
+			var F = function(x) {
+				return (Faval*Math.pow(x,3) + Fbval*Math.pow(x,2) + Fcval*x + Fdval);
 			}
 		}
 			 
@@ -173,31 +194,28 @@ function makeCanvas(){
 		  context.stroke() ;
 		}
 
-
 		/////////////////////////////////
 		//RUN THINGS!
 		drawAxes();
 		RenderFunction(F);
 	}
 
+
+	//Function display prompt logic
 	pickedCanvas = pickCanvas();
 
-	if(!sinxOn){
-		if(pickedCanvas[2]<0){
-		var pickedFunction = "Which graph is f(x) = " + pickedCanvas[0] + "cos(" + pickedCanvas[1] + "x) " + pickedCanvas[2] + "?";
-		}
-		else{
-		var pickedFunction = "Which graph is f(x) = " + pickedCanvas[0] + "cos(" + pickedCanvas[1] + "x) + " + pickedCanvas[2] + "?";
-		}
+	if(chosenFunc==="cosx"){
+		pickedFunction = "Which graph is f(x) = " + Faval + "cos(" + Fbval + "x) + " + Fcval + "?";
 	}
-	else{
-		if(pickedCanvas[2]<0){
-		var pickedFunction = "Which graph is f(x) = " + pickedCanvas[0] + "sin(" + pickedCanvas[1] + "x) " + pickedCanvas[2] + "?";
-		}
-		else{
-		var pickedFunction = "Which graph is f(x) = " + pickedCanvas[0] + "sin(" + pickedCanvas[1] + "x) + " + pickedCanvas[2] + "?";
-		}
+	else if(chosenFunc==="sinx"){
+		pickedFunction = "Which graph is f(x) = " + Faval + "sin(" + Fbval + "x) + " + Fcval + "?";
 	}
-
-	functionDisplay.textContent = pickedFunction;
+	else if(chosenFunc==="x2"){
+		pickedFunction = "Which graph is f(x) = " + Faval + "x<sup>2</sup> + " + Fbval + "x + " + Fcval + "?";
+	}
+	else if(chosenFunc==="x3"){
+		pickedFunction = 'Which graph is f(x) = ' + Faval + 'x<sup>3</sup> + ' + Fbval + 'x<sup>2</sup> + ' + Fcval + 'x + ' + Fdval + '?';
+	}
+	
+	functionDisplay.innerHTML = pickedFunction;
 }
